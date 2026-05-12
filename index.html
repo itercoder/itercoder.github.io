@@ -1,1 +1,534 @@
-Bonjour
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face{
+ font-family: "Roboto";
+ src: url('fonts/Roboto_Condensed-Medium.ttf') format("truetype");
+}
+*{
+padding:0px;
+margin:0px;
+box-sizing:border-box;
+}
+body{
+overflow-x:hidden;
+background:#B2161D;
+font-family: "Roboto", sans-serif;
+}
+header:after,#present>div:before,#present>div:after{
+content:"";
+display:block;
+position:absolute;
+}
+header:after{
+width:140vw;
+background:#B3A7A0;
+transform:skewX(-15deg);
+z-index:-2;
+top:0px;
+left:-100vw;
+height:max(100%,100vh);
+}
+div:has(#tostick){
+position:fixed;
+z-index:15;
+background:rgb(224,27,36);
+width:100vw;
+display:flex;
+justify-content:center;
+}
+#tostick{
+width:min(100vw,max(755px,75vw));
+top:0px;
+left:0px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:13px 2vw;
+color:white;
+font-weight:bold;
+text-transform:uppercase;
+font-size:13px;
+}
+#nav{
+display:flex;
+flex-direction:column;
+}
+#nav > div:first-child{
+margin:0px;
+}
+#nav > div{
+height:2px;
+width:18px;
+background:white;
+border-radius:2px;
+margin-top:4px;
+}
+pre{
+font-size:55px;
+padding:15px;
+font-weight:100;
+text-align:center;
+font-family: "Roboto", sans-serif;
+color:white;
+mix-blend-mode:difference;
+}
+#present{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+position:relative;
+gap:2px 2px;
+z-index:5;
+}
+#present:before{
+content:"";
+display:block;
+position:absolute;
+top:0px;
+left:0px;
+border:25px solid #e8e5e3;
+height:100%;
+width:100%;
+z-index:-1;
+box-sizing:border-box;
+}
+#present > div{
+display:flex;
+flex-direction:column;
+align-items:flex-end;
+justify-content:space-between;
+padding:5px;
+background:#e8e5e3;
+color:black;
+min-height:calc(min(30vw,355px)*1.15);
+border-radius:25px;
+position:relative;
+z-index:3;
+}
+#present > div > button,#one > div > button{
+border-radius:2px 0px 25px 0px;
+background:#e01b24;
+color:white;
+font-weight:bold;
+border:none;
+padding:11px 15px;
+margin-right:15px;
+margin-top:5px;
+transition:100ms all;
+}
+#present > div > button:hover,#one > div > button:hover{
+ filter:brightness(3);
+}
+#present > div > button:active,#one > div > button:active{
+ filter:brightness(0.8);
+}
+#one > div > button{
+float:right;
+}
+#present > div > div > div{
+position:relative;
+}
+#present > div > div > div > div{
+position:absolute;
+height:100%;
+width:100%;
+left:0px;
+
+top:-2px;
+display:flex;
+align-items:flex-end;
+padding-bottom:0px;
+}
+#present > div > div > p{
+padding:5px 15px 15px 15px;
+}
+#present > div > div > div > div > h3{
+padding:15px;
+text-align:center;
+background:#e01b2470;
+flex-grow:1;
+color:white;
+border-radius:0px 0px 25px 25px;
+}
+#present > div > div  {
+padding:5px;
+}
+#present > div > div > div > img{
+width:100%;
+border-radius:25px;
+}
+#one{
+box-shadow:0px 0px 45px 25px #0005;
+margin:15px 0px 0px 0px;
+flex-grow:1;
+display:grid;
+grid-template-columns:50vw 50vw;
+grid-template-rows:auto;
+row-gap:15px;
+background: #d3ccc8;
+}
+#one div:has(>img){
+position:relative;
+max-width:calc(50vw - 25px);
+display:flex;
+max-height:calc(100% - 30px);
+}
+#one div > img{
+flex-grow:1;
+object-fit:cover;
+}
+#one div:has(>img):before{
+content:"an image from pixabay";
+display:block;
+letter-spacing:-1px;
+color:gray;
+z-index:5;
+position:absolute;
+bottom:5px;
+left:0px;
+width:100%;
+text-align:center;
+}
+#one > div:has(div:has(>img)){
+display:grid;
+grid-template-columns:1fr;
+grid-template-rows:1fr auto 1fr;
+}
+#one > div:first-child{
+padding:13px;
+}
+#one > div:last-child{
+padding:25px 0px 0px 25px;
+}
+#one h3{
+padding:2px 5px 12px 15px;
+text-transform:uppercase;
+font-weight:300;
+color:white;
+font-size:25px;
+
+}
+header{
+min-height:100vh;
+display:flex;
+padding-top:40px;
+flex-direction:column;
+position:relative;
+}
+#author:before,#author:after{
+content:"how About me";
+position:absolute;
+display:block;
+text-align:center;
+text-transform:uppercase;
+color:black;
+font-weight:bold;
+z-index:15;
+}
+#author:before{
+left:0px;
+transform: rotate(90deg) scaleY(-1) scaleX(-1);
+top:31px;
+}
+#author:after{
+right:0px;
+transform: rotate(90deg) scaleY(1);
+top:155px;
+}
+#author{
+background:#B2161D;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:25px;
+position:relative;
+}
+#author > div{
+display:grid;
+grid-template-columns:155px 255px;
+grid-template-rows:auto;
+grid-gap:25px;
+place-items:center;
+}
+#author > div > div{
+display:flex;
+align-items:center;
+width:155px;
+height:155px;
+flex-direction:column;
+justify-content:center;
+background: #B3A7A0;
+border-radius:79px;
+padding:15px;
+text-align:center;
+}
+#author > div > div{
+font-size:19px;
+text-transform:uppercase;
+font-weight:bold;
+color:black;
+}
+#author > div > div > span:first-child > span{
+font-size:19px;
+text-transform:uppercase;
+font-weight:200;
+color:black;
+line-height:6px;
+}
+#author > div > div > span:last-child{
+font-size:13px;
+color:#B2161D;
+}
+#author > div > p{
+text-align:justify;
+text-justify:inter-character;
+}
+footer{
+background:#B3A7A0;
+color:black;
+
+display:flex;
+justify-content:space-around;
+grid-template-columns:1fr 1fr 1fr;
+grid-gap:15px;
+padding:15px;
+font-weight:200;
+color:white;
+}
+footer section{
+display:flex;
+flex-direction:column;
+background
+}
+footer h3{
+font-weight:100;
+color:black;
+
+font-size:29px;
+text-transform:uppercase;
+}
+footer a{
+color:#B2161D;
+font-size:19px;
+text-transform:capitalize;
+text-decoration:none;
+font-weight:400;
+max-width:fit-content;
+}
+#one > div:has(> div) p{
+ font-size:15px;
+ text-transform:uppercase;
+ color:#B2161D;
+ padding:0px 0px 2px 15px;
+}
+#one > div:not(:has(img)) > p{
+padding-right:15px;
+color:black;
+font-weight:550;
+}
+#one > div:not(:has(img)) > h3{
+padding-right:15px;
+color:#B2161D;
+font-weight:900;
+}
+nav{
+padding:15px;
+background:#B2161D;
+position:fixed;
+right:-150%;
+z-index:20;
+top:0px;
+display:flex;
+width:min(100vw,655px);
+height:100vh;
+font-size:19px;
+box-shadow:0px 0px 50vw 5vw black;
+opacity:0;
+flex-direction:column;
+gap:1px;
+transition:500ms right;
+}
+nav a{
+background:#B3A7A0;
+color:#B2161D;
+border:1px solid #B3A7A0;
+padding:15px;
+text-decoration:none;
+}
+nav a:hover{
+filter:invert(1);
+}
+nav p{
+color:white;
+text-transform:uppercase;
+font-weight:200;
+font-size:25px;
+padding:15px 5px 11px 15px;
+}
+nav p:after{
+ content:" _-_";
+ font-size:35px;
+ font-weight:100;
+}
+nav p:before{
+ content:"_-_ ";
+ font-size:35px;
+ font-weight:100;
+}
+nav button{
+border:none;
+position:relative;
+width:28px;
+height:28px;
+color:white;
+background:#0000;
+font-size:15px;
+cursor:pointer;
+}
+nav button:before,nav button:after{
+content:"";
+display:block;
+position:absolute;
+border-radius:3px;
+top:11px;
+left:-3px;
+width:35px;
+height:3px;
+background:white;
+}
+nav button:after{
+rotate:45deg;
+}
+nav button:before{
+rotate:-45deg;
+}
+nav div{
+display:flex;
+padding:0px 15px 8px 0px;
+justify-content:flex-end;
+}
+</style>
+</head>
+<body>
+<nav id="nav-c">
+<div>
+<button onclick='const nav = document.getElementById("nav-c");nav.style.opacity = "0";
+nav.style.right = "-150%";'></button>
+</div>
+<a href="">home</a>
+<a href="">latest articles</a>
+<a href="">about me</a>
+<p>tags</p>
+<a href="">wing chun (0)</a>
+<a href="">coding & dev news (0)</a>
+<a href="">teakwondo (0)</a>
+<a href="">AI & Machine learning (0)</a>
+<a href="">chinese (0)</a>
+<a href="">other (0)</a>
+</nav>
+<div>
+<div id="tostick">
+<div>
+<a>itercoder</a>
+<a>home</a>
+<a>articles</a>
+<a>about me</a>
+</div>
+<section id="nav" onclick='const nav = document.getElementById("nav-c");nav.style.opacity = "1";nav.style.right = "0%";'>
+<div></div>
+<div></div>
+<div></div>
+</section>
+</div>
+</div>
+<header>
+<pre>
+Hi                           Ni Hao
+ i'm <span style="font-weight:400;color:#eee;">iter</span><span style="font-weight:900;">Coder</span>,
+     Welcome on my Blog
+</pre>
+<div id="one">
+<div>
+<p>last article</p>
+<div>
+<img src="images.jpeg"/>
+</div>
+</div>
+<div>
+<h3>The end of coding</h3>
+<p>The end of coding is near in time, all of that because AI and the "Vibe coding" begin to replace our intelligence, year after year. The coders community will not growing in fact, but number of users in the pooopulars plateforms yes. Click to read moreThe end of coding is near in time, all of that because AI and the "Vibe coding" begin to replace our intelligence, year after year. The coders community will not growing in fact, but number of users in the pooopulars plateforms yes. Click to read moreThe end of coding is near in time, all of that because AI and the "Vibe coding" begin to replace our intelligence, year after year. The coders community will not growing in fact, but number of users in the pooopulars plateforms yes. Click to read more</p>
+<button>read more</button>
+</div>
+</div>
+</header>
+<section id="present">
+</section>
+<section id="author">
+<div>
+<div><span><span>iter</span>coder</span><br/><span>Anonymous - no photo - do not ask me why</span></div>
+<p>I love <span>wing chun</span>, <span>coding</span>, <span>Teakwondo</span>, <span>IA & machine learning</span>, <span>Chinese french arabic russian and english</span>, <span>robotics</span> and many things like rust programming language</p>
+</div>
+</section>
+<footer>
+<section>
+<h3>Common links</h3>
+<a href="">Home</a>
+<a href="">Latest articles</a>
+</section>
+<section>
+<h3>tags</h3>
+<a href="">wing chun (0)</a>
+<a href="">coding & dev news (0)</a>
+<a href="">teakwondo (0)</a>
+<a href="">AI & Machine learning (0)</a>
+<a href="">chinese (0)</a>
+<a href="">other (0)</a>
+</section>
+<section>
+<h3>about me</h3>
+<a href="">my skills & experiences</a>
+<a href="">what I do</a>
+<a href="">where I am - contacts & adresses</a>
+<a href="">My ethique</a>
+</section>
+</footer>
+<script>
+const num_of_articles = 3;
+const num_to_print = 4;
+const base_url = "https://www.itecoder.github.io/articles/";
+
+async function main(){
+for (let i=Math.min(num_to_print,num_of_articles); i > 0; i--){
+console.log(i);
+const sec = document.getElementById("present");
+const div1 = document.createElement("div");
+const div2 = document.createElement("div");
+const div3 = document.createElement("div");
+const div4 = document.createElement("div");
+const h3 = document.createElement("h3");
+const btn = document.createElement("button");
+const img = document.createElement("img");
+const data = await fetch(base_url+'describe/'+i);
+const img_url = base_url+"images/"+i;
+img.src=img_url;
+const p = document.createElement("p");
+p.innerHTML=data;
+btn.innerHTML="read more";
+div1.append(div2);
+div1.append(btn);
+sec.append(div1);
+
+div2.append(div3);
+div2.append(p);
+
+div3.append(div4);
+div3.append(img);
+div4.append(h3);
+}
+}
+main();
+</script>
+</body>
+</html>
